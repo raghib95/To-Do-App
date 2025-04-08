@@ -1,0 +1,15 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+body {
+  display: flex;
+}
+.container {
+  display: block;
+  position: relative;
+  margin: auto;
+}
+.addTask-btn {
+  display: block;
+}
