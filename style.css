@@ -1,6 +1,7 @@
 * {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 body {
   display: flex;
@@ -9,7 +10,18 @@ body {
   display: block;
   position: relative;
   margin: auto;
+  margin-top: 10px;
+  background-color: antiquewhite;
+}
+.section {
+  display: block;
 }
 .addTask-btn {
   display: block;
+}
+.add-task {
+  display: flex;
+}
+.editBtn {
+  display: inline-block;
 }
