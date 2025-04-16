@@ -53,6 +53,7 @@ function AddTaskFun(sectionDiv, inputElem) {
   const AddTaskDiv = document.createElement("div");
   sectionDiv.appendChild(AddTaskDiv);
   AddTaskDiv.setAttribute("class", "add-task");
+
   // Adding Paragraph
   const ParaElem = AddingParagraph(AddTaskDiv, inputElem);
   //edit button
@@ -64,6 +65,22 @@ function AddTaskFun(sectionDiv, inputElem) {
   deleteBtn.addEventListener("click", () => {
     AddTaskDiv.remove();
   });
+
+  //Adding check Box
+  const checkBox = CheckBoxFun(AddTaskDiv);
+  checkBox.addEventListener("change", () => {
+    checkBox.checked
+      ? ParaElem.classList.add("lineTrough")
+      : ParaElem.classList.remove("lineTrough");
+  });
+}
+
+function CheckBoxFun(AddTaskDiv) {
+  const checkBoxElem = document.createElement("input");
+  AddTaskDiv.appendChild(checkBoxElem);
+  checkBoxElem.setAttribute("type", "checkbox");
+  checkBoxElem.setAttribute("class", "check-box");
+  return checkBoxElem;
 }
 
 function AddingParagraph(AddTaskDiv, inputElem) {

@@ -21,7 +21,17 @@ body {
 }
 .add-task {
   display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 5px 0;
 }
 .editBtn {
   display: inline-block;
+}
+.lineTrough {
+  text-decoration: line-through;
+  color: #575454;
+}
+.check-box input[type="checkbox"]:checked {
+  background-color: rgb(27, 216, 59);
 }
