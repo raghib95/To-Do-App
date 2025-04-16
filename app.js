@@ -96,18 +96,9 @@ function AddTaskFun(sectionDiv, inputElem) {
 
   //Adding check Box
   const checkBox = CheckBoxFun(AddTaskDiv);
-  checkBox.addEventListener("change", () => {
-    const parentDiv = checkBox.parentNode;
-    if (checkBox.checked) {
-      ParaElem.classList.add("lineTrough");
-      parentDiv.classList.add("checked");
-    } else {
-      ParaElem.classList.remove("lineTrough");
-      if (parentDiv.classList.contains("checked")) {
-        parentDiv.classList.remove("checked");
-      }
-    }
-  });
+  checkBox.addEventListener("change", () =>
+    checkBoxHandler(checkBox, ParaElem)
+  );
 }
 ////////////////////////////////////
 
@@ -117,6 +108,19 @@ function CheckBoxFun(AddTaskDiv) {
   checkBoxElem.setAttribute("type", "checkbox");
   checkBoxElem.setAttribute("class", "check-box");
   return checkBoxElem;
+}
+
+function checkBoxHandler(checkBox, ParaElem) {
+  const parentDiv = checkBox.parentNode;
+  if (checkBox.checked) {
+    ParaElem.classList.add("lineTrough");
+    parentDiv.classList.add("checked");
+  } else {
+    ParaElem.classList.remove("lineTrough");
+    if (parentDiv.classList.contains("checked")) {
+      parentDiv.classList.remove("checked");
+    }
+  }
 }
 
 function AddingParagraph(AddTaskDiv, inputElem) {

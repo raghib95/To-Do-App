@@ -12,7 +12,8 @@ body {
   margin: auto;
   padding: 5px 20px;
   margin-top: 10px;
-  background-color: antiquewhite;
+  background-color: #a4bcf2;
+  border-radius: 5px;
 }
 input {
   padding: 5px;
@@ -42,6 +43,9 @@ input {
   align-items: center;
   gap: 10px;
   margin: 5px 0;
+}
+.add-task p {
+  background-color: white;
 }
 .editBtn {
   display: inline-block;
