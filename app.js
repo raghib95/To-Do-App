@@ -54,19 +54,24 @@ function AddTaskFun(sectionDiv, inputElem) {
   sectionDiv.appendChild(AddTaskDiv);
   AddTaskDiv.setAttribute("class", "add-task");
   // Adding Paragraph
-  const ParaElem = document.createElement("p");
-  AddTaskDiv.appendChild(ParaElem);
-  ParaElem.textContent = inputElem.value;
-  inputElem.value = "";
+  const ParaElem = AddingParagraph(AddTaskDiv, inputElem);
   //edit button
   const editBtn = EditBtnFun(AddTaskDiv);
-  editBtn.addEventListener("click", () => EditTxtContent(editBtn, ParaElem));
+  editBtn.addEventListener("click", () => HandleEditBtn(editBtn, ParaElem));
 
   //delete button
   const deleteBtn = DeleteBtnFun(AddTaskDiv);
   deleteBtn.addEventListener("click", () => {
     AddTaskDiv.remove();
   });
+}
+
+function AddingParagraph(AddTaskDiv, inputElem) {
+  const ParaElem = document.createElement("p");
+  AddTaskDiv.appendChild(ParaElem);
+  ParaElem.textContent = inputElem.value;
+  inputElem.value = "";
+  return ParaElem;
 }
 
 function EditBtnFun(AddTaskDiv) {
@@ -77,7 +82,7 @@ function EditBtnFun(AddTaskDiv) {
   return editBtn;
 }
 
-function EditTxtContent(editBtn, ParaElem) {
+function HandleEditBtn(editBtn, ParaElem) {
   if (editBtn.textContent === "Edit") {
     editBtn.textContent = "Save";
     ParaElem.setAttribute("contenteditable", "true");
