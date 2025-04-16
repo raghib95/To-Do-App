@@ -10,14 +10,32 @@ body {
   display: block;
   position: relative;
   margin: auto;
+  padding: 5px 20px;
   margin-top: 10px;
   background-color: antiquewhite;
 }
+input {
+  padding: 5px;
+  border-radius: 5px;
+}
 .section {
   display: block;
+  padding: 5px 20px;
+}
+.drop-down {
+  margin: 5px;
+  padding: 5px;
+  border-radius: 5px;
 }
 .addTask-btn {
   display: block;
+  margin: auto;
+  padding: 3px 25px;
+  border-radius: 3px;
+  background-color: #007bff;
+  cursor: pointer;
+  border: none;
+  color: white;
 }
 .add-task {
   display: flex;
@@ -34,4 +52,7 @@ body {
 }
 .check-box input[type="checkbox"]:checked {
   background-color: rgb(27, 216, 59);
+}
+.hide {
+  display: none;
 }

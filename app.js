@@ -6,8 +6,15 @@ function main() {
   const sectionDiv = document.querySelector(".section");
   const inputElem = document.createElement("input");
   const InputBtnElem = document.createElement("button");
+  ///// input area ////
   InputTxtAreaFun(InputAreaDiv, inputElem);
-  DropDownMenuFun(InputAreaDiv);
+  ///// dropdown/////
+  const optionsArr = ["All Task", "Completed", "In progress"];
+  const dropdown = DropDownMenuFun(InputAreaDiv, optionsArr);
+  dropdown.addEventListener("change", () => {
+    HandleDropDown(sectionDiv, dropdown, optionsArr);
+  });
+  ///// add text ////
   InputBtnFun(InputAreaDiv, InputBtnElem);
   inputElem.addEventListener("keydown", (event) => {
     if (event.key === "Enter") {
@@ -27,17 +34,38 @@ function InputTxtAreaFun(InputAreaDiv, inputElem) {
 }
 
 /////////// Create dropdown /////////
-function DropDownMenuFun(InputAreaDiv) {
+function DropDownMenuFun(InputAreaDiv, optionsArr) {
   const dropdown = document.createElement("select");
   dropdown.setAttribute("class", "drop-down");
   InputAreaDiv.appendChild(dropdown);
-  const optionsArr = ["All Task", "Completed", "In progress"];
+
   for (let i = 0; i < optionsArr.length; i++) {
     const optionElem = document.createElement("option");
     optionElem.value = optionsArr[i];
     optionElem.textContent = optionsArr[i];
     dropdown.appendChild(optionElem);
   }
+  return dropdown;
+}
+
+////////// Handle dropdown //////////
+function HandleDropDown(sectionDiv, dropdown, optionsArr) {
+  const children = Array.from(sectionDiv.children);
+  console.log(children);
+  children.forEach((child) => {
+    const isCompleted = child.classList.contains("checked");
+    if (dropdown.value === optionsArr[1]) {
+      isCompleted
+        ? child.classList.remove("hide")
+        : child.classList.add("hide");
+    } else if (dropdown.value === optionsArr[2]) {
+      isCompleted
+        ? child.classList.add("hide")
+        : child.classList.remove("hide");
+    } else {
+      child.classList.remove("hide");
+    }
+  });
 }
 
 /////////// Input Button //////////
@@ -81,6 +109,7 @@ function AddTaskFun(sectionDiv, inputElem) {
     }
   });
 }
+////////////////////////////////////
 
 function CheckBoxFun(AddTaskDiv) {
   const checkBoxElem = document.createElement("input");
