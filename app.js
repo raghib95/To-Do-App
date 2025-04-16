@@ -69,9 +69,16 @@ function AddTaskFun(sectionDiv, inputElem) {
   //Adding check Box
   const checkBox = CheckBoxFun(AddTaskDiv);
   checkBox.addEventListener("change", () => {
-    checkBox.checked
-      ? ParaElem.classList.add("lineTrough")
-      : ParaElem.classList.remove("lineTrough");
+    const parentDiv = checkBox.parentNode;
+    if (checkBox.checked) {
+      ParaElem.classList.add("lineTrough");
+      parentDiv.classList.add("checked");
+    } else {
+      ParaElem.classList.remove("lineTrough");
+      if (parentDiv.classList.contains("checked")) {
+        parentDiv.classList.remove("checked");
+      }
+    }
   });
 }
 
