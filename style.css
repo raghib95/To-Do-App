@@ -18,6 +18,7 @@ body {
 input {
   padding: 5px;
   border-radius: 5px;
+  border: 1px solid #5f5d5d;
 }
 .section {
   display: block;
@@ -31,31 +32,55 @@ input {
 .addTask-btn {
   display: block;
   margin: auto;
-  padding: 3px 25px;
+  padding: 5px 25px;
   border-radius: 3px;
   background-color: #007bff;
   cursor: pointer;
   border: none;
   color: white;
+  font-size: 16px;
 }
 .add-task {
   display: flex;
-  align-items: center;
+  justify-content: space-between;
+  align-items: flex-start;
   gap: 10px;
   margin: 5px 0;
-}
-.add-task p {
+  border: 1px solid #ccc;
   background-color: white;
 }
+.add-task p {
+  padding: 1px 12px;
+  border-radius: 2px;
+}
 .editBtn {
-  display: inline-block;
+  display: flex;
+  flex-direction: column;
+  padding: 3px 12px;
+  margin-right: 0px;
+  border-radius: 2px;
+  border: none;
+  color: #007bff;
+  background-color: none;
+  background-color: white;
+}
+.deleteBtn {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  margin: 0px;
+  padding: 3px 12px;
+  border-radius: 2px;
+  border: none;
+  color: red;
+  background-color: none;
 }
 .lineTrough {
   text-decoration: line-through;
   color: #575454;
 }
 .check-box input[type="checkbox"]:checked {
-  background-color: rgb(27, 216, 59);
+  color: green;
 }
 .hide {
   display: none;
